@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="js/jQuery06.js"></script>
+
+</head>
+<body>
+    <h1>여기는 h1입니다.</h1>
+    <!--
+        event delegation model
+        event source가 직접 event 처리를 하는게 아니라 handler에게 처리를 위임하는 이벤트 처리 모델
+
+        event source : event가 발생한 element(component)
+        event 이름 : click, dbclick, mouseover, mouseenter, ...
+        event 속성 : on + event이름
+        event handler : 이벤트를 처리하는 자바스크립트 함수
+        event 객체 : 이벤트가 발생될 때마다 이벤트의 세부정보를 가지고 있는 개체가 생성. (javascript engine)
+    -->
+    <input type="button" value="클릭!!" onclick="myFunc()">
+</body>
+</html>
+
