@@ -23,13 +23,17 @@ function search(){
                 var img = $("<img />");
                 var rankTd = $("<td></td>").text(item.rank);
                 var titleTd = $("<td></td>").text(item.movieNm);
+                var actorTd = $("<td></td>").attr("data-actors", item.movieCd);
+                var genreTd = $("<td></td>").attr("data-genre", item.movieCd);
 
                 tr.append(rankTd);
                 tr.append(img);
                 tr.append(titleTd);
+                tr.append(actorTd);
+                tr.append(genreTd);
 
                 $.ajax({
-                    async : false,
+                    async : true,
                     url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json",
                     data : {
                         key : "1efcaa139225d33ea442d16fe325da49",
@@ -41,12 +45,8 @@ function search(){
                     success : function(data) {
                         var movie = data.movieInfoResult.movieInfo;
 
-                        var actorTd = $("<td></td>").text(movie.actors[0].peopleNm);
-                        var genreTd = $("<td></td>").text(movie.genres[0].genreNm);
-
-                        tr.append(actorTd);
-                        tr.append(genreTd);
-
+                        $("[data-genre="+item.movieCd+"]").text(movie.genres[0].genreNm);
+                        $("[data-actors="+item.movieCd+"]").text(movie.actors[0].peopleNm);
                     },
                     error : function() {
                         alert("error");
